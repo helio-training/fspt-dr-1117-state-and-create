@@ -44,11 +44,11 @@ const b = "Hi" //string
 const c = {
     hasPower: false,
     cook: (time, food) => {return "off"}
-} //object
+} //object (structurally the same as microwave)
 const d = [] //array
 const e = new Microwave(false) //microwave
 
-console.log("is c and e the same", c === e)
+console.log("is c and e the same", c === e) //not reference equal
 
 const myMicrowave = new Microwave(true)
 myMicrowave.hasPower = false
