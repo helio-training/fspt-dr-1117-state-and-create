@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MainPage from "./Pages/MainPage"
 import "./TestFunctions"
+import "./Microwave"
 
 class App extends Component {
   render() {
