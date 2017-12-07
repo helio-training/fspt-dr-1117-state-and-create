@@ -64,10 +64,16 @@ for (const i in employees) {
     console.log(employees[i].name, yearlySalary)
 }
 
-let count = 0
 for (const employee of employees) {
-    console.log(count % 2 === 0 ? "" : "Other")
-    count++
     const yearlySalary = processPayroll(employee)
     console.log(employee.name, yearlySalary)
 }
+
+let i = 0
+console.log("While starts after this: ", i)
+while (i < employees.length) {
+    const yearlySalary = processPayroll(employees[i])
+    console.log("while i is " + i, employees[i].name, yearlySalary)
+    i++    
+}
+
