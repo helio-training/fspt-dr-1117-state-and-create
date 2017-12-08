@@ -12,12 +12,19 @@ class Kitchen {
 
         this.microwave = microwave
         Microwave.plugIn(this.microwave)
-        //this.microwave.hasPower = true //plugging in
+    }
+
+    lightsStatus = "on"
+    get areLightsOn() {
+        return this.lightsStatus === "on"
+    }
+    set areLightsOn(areOn) {
+        this.lightsStatus = areOn ? "on" : "off"
     }
 }
 
 
-const m3 = new Microwave(false, "M3")
+export const m3 = new Microwave(false, "M3")
 m3.instanceCount = 100
 console.log("M3 Count", m3.instanceCount)
 console.log(Microwave.globalCount)
@@ -25,3 +32,9 @@ console.log(Microwave.globalCount)
 console.log(new Kitchen(new Microwave(false, "M1")))
 console.log(new Kitchen(new Microwave(false, "M2")))
 
+const microwave = new Microwave(false)
+const kitchen = new Kitchen(microwave)
+
+console.log("Our Kitchen lights", kitchen.areLightsOn)
+kitchen.areLightsOn = false
+console.log("Our Kitchen lights", kitchen.areLightsOn)
