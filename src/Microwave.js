@@ -1,11 +1,12 @@
+import Appliance from "./Appliance"
 console.log("microwave");
 
-class Microwave {
-    hasPower = null
+class Microwave extends Appliance {
     static globalCount = 0
     instanceCount = 0
 
     constructor(power, name) {
+        super(power)
         console.log("Microwave ctor", power)
         
         Microwave.globalCount++
@@ -16,10 +17,6 @@ class Microwave {
         console.log("Instance Microwave Count", name, this.instanceCount)
 
         this.hasPower = power
-    }
-
-    static plugIn = (microwave) => {
-        microwave.hasPower = true
     }
 
     cook = (time, food) => {

@@ -1,17 +1,22 @@
 import Microwave from "./Microwave"
+import Appliance from "./Appliance"
+import Blender from "./Blender"
 
 console.log("Kitchen is running....")
 
 class Kitchen {
     microwave = null
+    blender = null
 
-    constructor(microwave) {
+    constructor(microwave, blender) {
         if(!microwave){
             throw Error
         }
 
         this.microwave = microwave
-        Microwave.plugIn(this.microwave)
+        this.blender = blender
+
+        Appliance.plugIn(this.microwave)
     }
 
     lightsStatus = "on"
@@ -22,6 +27,10 @@ class Kitchen {
         this.lightsStatus = areOn ? "on" : "off"
     }
 }
+
+console.log("Target Kitchen")
+const kitchen2 = new Kitchen(new Microwave(false, "M5"), new Blender(false))
+console.log("Will Bricks Blend?", kitchen2.blender.willItBlend("bricks"))
 
 
 export const m3 = new Microwave(false, "M3")
